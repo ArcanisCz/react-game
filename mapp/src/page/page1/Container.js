@@ -3,25 +3,14 @@ import {NavigationActions} from 'react-navigation';
 import {connect} from "react-redux";
 import {Text, View, Button, Image, StyleSheet} from 'react-native';
 
-class DumbComponent extends Component {
-    static navigationOptions = {
-        tabBarIcon: ({tintColor}) => (
-            <Image
-                source={require('./ico.png')}
-                style={[styles.icon, {tintColor: tintColor}]}
-            />
-        )
-    };
+import TabIco from "navigation/TabIco";
 
-    render() {
-        return (
-            <View style={styles.page}>
-                <Text>Page1</Text>
-                <Button title="aaa" onPress={this.props.click}/>
-            </View>
-        )
-    }
-}
+const DumbComponent = ({click}) => (
+    <View style={styles.page}>
+        <Text>Page1</Text>
+        <Button title="aaa" onPress={click}/>
+    </View>
+);
 
 const mapStateToProps = () => ({});
 const mapDispatchToProps = (dispatch) => ({
@@ -32,6 +21,15 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(DumbComponent);
+
+Container.navigationOptions = {
+    tabBarIcon: ({tintColor}) => (
+        <TabIco
+            source={require('./ico.png')}
+            tintColor={tintColor}
+        />
+    )
+};
 
 export default Container;
 
