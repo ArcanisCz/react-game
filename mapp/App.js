@@ -1,21 +1,28 @@
-import React, {Component} from 'react';
-import {Text, View, StyleSheet, Image} from 'react-native';
+import React from 'react';
+import {TabNavigator} from 'react-navigation';
+import {StyleSheet} from 'react-native';
 
-export default class App extends Component {
-    render() {
-        return (
-            <View style={styles.container}>
-                <Text>Kůň jede!</Text>
-            </View>
-        )
-    }
-}
+import Page1 from "./page/Page1";
+import Page2 from "./page/Page2";
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
+    bar: {
+        paddingTop: 20,
     },
+    tab: {}
+});
+
+export default SimpleApp = TabNavigator({
+    Page1: {screen: Page1},
+    Page2: {screen: Page2},
+}, {
+    lazy: false,
+    initialRouteName: "Page1",
+    tabBarPosition: "top",
+    tabBarOptions: {
+        showIcon: true,
+        showLabel: false,
+        style: styles.bar,
+        tabStyle: styles.tab,
+    }
 });
