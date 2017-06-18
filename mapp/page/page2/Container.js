@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {Text, View, StyleSheet, Image} from 'react-native';
 
-export default class Page2 extends Component {
+export default class Container extends Component {
     static navigationOptions = {
         tabBarIcon: ({tintColor}) => (
             <Image
-                source={require('./ico2.png')}
+                source={require('./ico.png')}
                 style={[styles.icon, {tintColor: tintColor}]}
             />
         )
