@@ -7,8 +7,8 @@ import {connect, Provider} from "react-redux"
 import {createStore} from 'redux';
 import {fromJS, Map} from "immutable";
 
-import page1 from "./page/page1";
-import page2 from "./page/page2";
+import page1 from "./src/page/page1";
+import page2 from "./src/page/page2";
 
 const styles = StyleSheet.create({
     bar: {
