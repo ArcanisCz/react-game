@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
-import TabIco from "common/TabIco";
+import TabIco from "navigation/TabIco";
 
 const Aaa = () => (
     <View style={styles.page}>
