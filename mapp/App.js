@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import {TabNavigator} from 'react-navigation';
 import {StyleSheet} from 'react-native';
 import {addNavigationHelpers} from 'react-navigation';
-// import {combineReducers} from "redux-immutable";
+import {combineReducers} from "redux-immutable";
 import {connect, Provider} from "react-redux"
-import {createStore, combineReducers} from 'redux';
-// import {fromJS} from "immutable";
+import {createStore} from 'redux';
+import {fromJS, Map} from "immutable";
 
 import page1 from "./page/page1";
 import page2 from "./page/page2";
@@ -31,11 +31,10 @@ const AppNavigator = TabNavigator({
     }
 });
 
-const initialState = (AppNavigator.router.getStateForAction(AppNavigator.router.getActionForPathAndParams('Page1')));
+const initialState = AppNavigator.router.getStateForAction(AppNavigator.router.getActionForPathAndParams('Page1'));
 
-const navReducer = (state = initialState, action) => {
-    const nextState = AppNavigator.router.getStateForAction(action, state);
-    return nextState || state;
+const navReducer = (state = fromJS(initialState), action) => {
+    return state.merge(AppNavigator.router.getStateForAction(action, state.toJS()));
 };
 
 const appReducer = combineReducers({
@@ -47,19 +46,19 @@ class App extends Component {
         return (
             <AppNavigator navigation={addNavigationHelpers({
                 dispatch: this.props.dispatch,
-                state: this.props.nav,
+                state: this.props.nav ? this.props.nav.toJS() : this.props.nav,
             })}/>
         );
     }
 }
 
 const mapStateToProps = (state) => ({
-    nav: state.nav
+    nav: state.get("nav")
 });
 
 const AppWithNavigationState = connect(mapStateToProps)(App);
 
-const store = createStore(appReducer);
+const store = createStore(appReducer, Map());
 
 export default class Root extends Component {
     render() {
