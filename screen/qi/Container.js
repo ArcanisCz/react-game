@@ -1,33 +1,39 @@
 import React from 'react';
 import {Text, View, StyleSheet, Button, ProgressBarAndroid} from 'react-native';
 
-import {connect} from "util";
 import TabIco from "component/navigation/TabIco";
+import {connect} from "util";
+import {getQi, getQiMax} from "state/resources/selectors"
+import {addQi, addMaxQi} from "state/resources/actions"
 
-const Component = ({click}) => (
+const Component = ({qi, qiMax, addQi, addMaxQi}) => (
     <View style={styles.page}>
 
-        <Text>aaa</Text>
+        <Text>{qi}/{qiMax}</Text>
         <View style={styles.buttons}>
             <View style={styles.button}>
-                <ProgressBarAndroid styleAttr="Horizontal" color="red" progress={0.5}/>
+                <ProgressBarAndroid styleAttr="Horizontal" indeterminate={false} color="red" progress={qi/qiMax}/>
             </View>
         </View>
         <View style={styles.buttons}>
             <View style={styles.button}>
-                <Button title="Prvni" onPress={() => {
-                }}/>
+                <Button title="Add QI" onPress={addQi}/>
             </View>
             <View style={styles.button}>
-                <Button title="Druhy" onPress={() => {
-                }}/>
+                <Button title="Druhy" onPress={addMaxQi}/>
             </View>
         </View>
     </View>
 );
 
-const mapStateToProps = () => ({});
-const mapDispatchToProps = (dispatch) => ({});
+const mapStateToProps = (state) => ({
+    qi: getQi(state),
+    qiMax: getQiMax(state),
+});
+const mapDispatchToProps = (dispatch) => ({
+    addQi: () => dispatch(addQi()),
+    addMaxQi: () => dispatch(addMaxQi()),
+});
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
