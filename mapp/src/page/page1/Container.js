@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {NavigationActions} from 'react-navigation';
 import {connect} from "react-redux";
 import {Text, View, Button, Image, StyleSheet} from 'react-native';
@@ -8,7 +8,7 @@ import TabIco from "navigation/TabIco";
 const DumbComponent = ({click}) => (
     <View style={styles.page}>
         <Text>Page1</Text>
-        <Button title="aaa" onPress={click}/>
+        <Button title="to Page2" onPress={click}/>
     </View>
 );
 
@@ -24,20 +24,13 @@ const Container = connect(mapStateToProps, mapDispatchToProps)(DumbComponent);
 
 Container.navigationOptions = {
     tabBarIcon: ({tintColor}) => (
-        <TabIco
-            source={require('./ico.png')}
-            tintColor={tintColor}
-        />
+        <TabIco source={require('./ico.png')} tintColor={tintColor}/>
     )
 };
 
 export default Container;
 
 const styles = StyleSheet.create({
-    icon: {
-        width: 26,
-        height: 26,
-    },
     page: {
         flex: 1,
         backgroundColor: "gray"

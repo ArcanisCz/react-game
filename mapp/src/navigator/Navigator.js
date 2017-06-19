@@ -17,11 +17,31 @@ export default AppNavigator = TabNavigator({
     Page2: {screen: page2.Container},
 }, {
     lazy: false,
+    swipeEnabled: false,
     tabBarPosition: "top",
     tabBarOptions: {
         showIcon: true,
         showLabel: false,
         style: styles.bar,
         tabStyle: styles.tab,
+    }
+});
+
+
+export const AppNavigator1 = TabNavigator({
+    Page1: {screen: page1.Container},
+    Page2: {screen: page2.Container},
+}, {
+    lazy: false,
+    swipeEnabled: true,
+    tabBarPosition: "top",
+    tabBarOptions: {
+        showIcon: true,
+        showLabel: false,
+        style: styles.bar,
+        tabStyle: styles.tab,
+    },
+    navigationOptions: {
+        tabBarVisible: false,
     }
 });

@@ -3,31 +3,23 @@ import {Text, View, StyleSheet} from 'react-native';
 
 import TabIco from "navigation/TabIco";
 
-const Aaa = () => (
+const Container = () => (
     <View style={styles.page}>
         <Text>Page2</Text>
     </View>
 );
 
-Aaa.navigationOptions = {
+Container.navigationOptions = {
     tabBarIcon: ({tintColor}) => (
-        <TabIco
-            source={require('./ico.png')}
-            tintColor={tintColor}
-        />
+        <TabIco source={require('./ico.png')} tintColor={tintColor}/>
     )
 };
 
-
 const styles = StyleSheet.create({
-    icon: {
-        width: 26,
-        height: 26,
-    },
     page: {
         flex: 1,
         backgroundColor: "gray"
     }
 });
 
-export default Aaa;
+export default Container;
