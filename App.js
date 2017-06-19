@@ -4,7 +4,7 @@ import {Provider} from "react-redux"
 import {createStore} from 'redux';
 import {fromJS, Map} from "immutable";
 
-import Root, {router} from "./src/navigator/Root";
+import Root, {router} from "./app/navigator/Root";
 
 const initialState = fromJS(router.getStateForAction(router.getActionForPathAndParams('QiScreen')));
 const navReducer = (state = initialState, action) => state.merge(router.getStateForAction(action, state.toJS()));

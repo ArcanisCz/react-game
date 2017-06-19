@@ -2,11 +2,12 @@ import React from 'react';
 import {connect} from "react-redux";
 import {Text, View, StyleSheet} from 'react-native';
 
-import TabIco from "navigation/TabIco";
+import TabIco from "app/navigation/TabIco";
 
 const DumbComponent = ({click}) => (
     <View style={styles.page}>
         <Text>aaa</Text>
+        <Text>bbb</Text>
     </View>
 );
 
@@ -28,5 +29,8 @@ export default Container;
 const styles = StyleSheet.create({
     page: {
         flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
     }
 });
