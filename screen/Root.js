@@ -1,10 +1,12 @@
 import React from 'react';
 import {addNavigationHelpers} from 'react-navigation';
-import {connect} from "react-redux"
+
+import {connect} from "util"
+import {getNav} from "state/navigation/selectors";
 
 import AppNavigator from "./Navigator";
 
-import {getNav} from "state/navigation/selectors";
+
 
 const App = ({nav, dispatch}) => (
     <AppNavigator

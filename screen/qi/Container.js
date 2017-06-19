@@ -1,7 +1,7 @@
 import React from 'react';
-import {connect} from "react-redux";
 import {Text, View, StyleSheet} from 'react-native';
 
+import {connect} from "util";
 import TabIco from "component/navigation/TabIco";
 
 const Component = ({click}) => (
