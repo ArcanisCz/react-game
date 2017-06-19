@@ -2,7 +2,7 @@ import React from 'react';
 import {TabNavigator} from 'react-navigation';
 import {StyleSheet} from 'react-native';
 
-import page1 from "../page/qi";
+import page1 from "./qi";
 
 const styles = StyleSheet.create({
     bar: {

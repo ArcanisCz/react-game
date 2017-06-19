@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from "react-redux";
 import {Text, View, StyleSheet} from 'react-native';
 
-import TabIco from "app/navigation/TabIco";
+import TabIco from "component/navigation/TabIco";
 
 const DumbComponent = ({click}) => (
     <View style={styles.page}>
