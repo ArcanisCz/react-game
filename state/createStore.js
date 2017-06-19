@@ -1,13 +1,13 @@
 import React from 'react';
 import {combineReducers} from "redux-immutable";
 import {createStore} from 'redux';
-import {fromJS, Map} from "immutable";
+import {Map} from "immutable";
+
+import navigation from "./navigation";
 
 export default (router) => {
-    const initialState = fromJS(router.getStateForAction(router.getActionForPathAndParams('QiScreen')));
-    const navReducer = (state = initialState, action) => state.merge(router.getStateForAction(action, state.toJS()));
     const appReducer = combineReducers({
-        nav: navReducer,
+        nav: navigation.createReducer(router),
     });
     return createStore(appReducer, Map());
 }

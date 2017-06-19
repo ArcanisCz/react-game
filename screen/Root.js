@@ -1,9 +1,10 @@
 import React from 'react';
 import {addNavigationHelpers} from 'react-navigation';
 import {connect} from "react-redux"
-import {Map} from "immutable";
 
 import AppNavigator from "./Navigator";
+
+import {getNav} from "state/navigation/selectors";
 
 const App = ({nav, dispatch}) => (
     <AppNavigator
@@ -14,13 +15,9 @@ const App = ({nav, dispatch}) => (
     />
 );
 
-App.defaultProps = {
-    nav: Map(),
-};
-
 const mapStateToProps = (state) => ({
-    nav: state.get("nav")
+    nav: getNav(state)
 });
 
 export const router = AppNavigator.router;
-export default Aaa = connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(App);

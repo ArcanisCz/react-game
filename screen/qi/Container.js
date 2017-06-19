@@ -4,18 +4,19 @@ import {Text, View, StyleSheet} from 'react-native';
 
 import TabIco from "component/navigation/TabIco";
 
-const DumbComponent = ({click}) => (
+const Component = ({click}) => (
     <View style={styles.page}>
         <Text>aaa</Text>
         <Text>bbb</Text>
     </View>
 );
 
-const mapStateToProps = () => ({});
+const mapStateToProps = () => ({
+});
 const mapDispatchToProps = (dispatch) => ({
 });
 
-const Container = connect(mapStateToProps, mapDispatchToProps)(DumbComponent);
+const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 Container.navigationOptions = {
     tabBarVisible: false,
