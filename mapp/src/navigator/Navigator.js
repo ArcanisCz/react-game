@@ -2,8 +2,7 @@ import React from 'react';
 import {TabNavigator} from 'react-navigation';
 import {StyleSheet} from 'react-native';
 
-import page1 from "../page/page1";
-import page2 from "../page/page2";
+import page1 from "../page/qi";
 
 const styles = StyleSheet.create({
     bar: {
@@ -13,10 +12,8 @@ const styles = StyleSheet.create({
 });
 
 export default AppNavigator = TabNavigator({
-    Page1: {screen: page1.Container},
-    Page2: {screen: page2.Container},
+    QiScreen: {screen: page1.Container},
 }, {
-    lazy: false,
     swipeEnabled: false,
     tabBarPosition: "top",
     tabBarOptions: {
@@ -24,24 +21,5 @@ export default AppNavigator = TabNavigator({
         showLabel: false,
         style: styles.bar,
         tabStyle: styles.tab,
-    }
-});
-
-
-export const AppNavigator1 = TabNavigator({
-    Page1: {screen: page1.Container},
-    Page2: {screen: page2.Container},
-}, {
-    lazy: false,
-    swipeEnabled: true,
-    tabBarPosition: "top",
-    tabBarOptions: {
-        showIcon: true,
-        showLabel: false,
-        style: styles.bar,
-        tabStyle: styles.tab,
-    },
-    navigationOptions: {
-        tabBarVisible: false,
     }
 });

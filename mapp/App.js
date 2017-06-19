@@ -6,7 +6,7 @@ import {fromJS, Map} from "immutable";
 
 import Root, {router} from "./src/navigator/Root";
 
-const initialState = fromJS(router.getStateForAction(router.getActionForPathAndParams('Page1')));
+const initialState = fromJS(router.getStateForAction(router.getActionForPathAndParams('QiScreen')));
 const navReducer = (state = initialState, action) => state.merge(router.getStateForAction(action, state.toJS()));
 const appReducer = combineReducers({
     nav: navReducer,
